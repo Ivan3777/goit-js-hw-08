@@ -19,7 +19,7 @@ function handleInput (e) {
 }
 
 function initPage () {
-    savedData = storageAPI.load('feedback-form-state');
+   const savedData = storageAPI.load('feedback-form-state');
     if (!savedData) {
         return;
     }

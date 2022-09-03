@@ -4,12 +4,12 @@ var throttle = require('lodash.throttle');
 const form = document.querySelector('.feedback-form');
 
 form.addEventListener('input', handleInput);
-
 form.addEventListener('submit', handleSubmit);
+initPage()
 
 function handleInput (e) {
     const {name, value} = e.target;
-
+    
     let savedData = storageAPI.load('formKey');
     savedData = savedData ? savedData : {};
     savedData[name] = value;
@@ -17,13 +17,13 @@ function handleInput (e) {
 }
 
 function initPage () {
-savedData = storageAPI.load('formKey');
-if (!savedData) {
-    return;
-}
-Object.entries(savedData).forEach(([name, value]) => {
-    form.elements[name].value = value;
-})
+    savedData = storageAPI.load('formKey');
+    if (!savedData) {
+        return;
+    }
+    Object.entries(savedData).forEach(([name, value]) => {
+        form.elements[name].value = value;
+    })
 }
 
 function handleSubmit (e) {

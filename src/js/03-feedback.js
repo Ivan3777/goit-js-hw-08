@@ -13,7 +13,7 @@ function handleInput (e) {
     let savedData = storageAPI.load('feedback-form-state');
     savedData = savedData ? savedData : {};
     savedData[name] = value;
-    storageAPI.save('formKey', savedData);
+    storageAPI.save('feedback-form-state', savedData);
 
     console.log(handleInput);
 }
